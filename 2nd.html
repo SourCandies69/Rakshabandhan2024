@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Images in Corners with Fading Effect</title>
+   <style>
+      /* General Reset */
+      body, html {
+         margin: 0;
+         padding: 0;
+         height: 100%;
+         width: 100%;
+         overflow: hidden;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background-image: url('ibg.jpg'); /* Background image */
+         background-size: cover; /* Cover the entire viewport */
+         background-position: center; /* Center the background image */
+         position: relative; /* Needed for positioning the SVG */
+      }
+
+      /* Base style for images in corners */
+      .corner-image {
+         position: absolute;
+         width: 250px; /* Adjust the size as needed */
+         height: 350px;
+         opacity: 0;
+         animation: fadeIn 3s forwards;
+      }
+
+      /* Specific positions for each corner */
+      .top-left {
+         top: 10px;
+         left: 70px;
+         animation-delay: 0.5s;
+      }
+
+      .top-right {
+         top: 10px;
+         right: 70px;
+         animation-delay: 1s;
+      }
+
+      .bottom-left {
+         bottom: 10px;
+         left: 70px;
+         animation-delay: 1.5s;
+      }
+
+      .bottom-right {
+         bottom: 10px;
+         right: 70px;
+         animation-delay: 2s;
+      }
+
+      /* Fade-in animation */
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+            transform: scale(0.5);
+         }
+         to {
+            opacity: 1;
+            transform: scale(1);
+         }
+      }
+
+      /* Curvy line style */
+      .curvy-line {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         width: 100vw;
+         height: 100vh;
+         pointer-events: none; /* Allow clicks to pass through */
+      }
+
+      .curvy-line path {
+         fill: none;
+         stroke: rgba(230, 40, 40, 0.753); /* Light color for visibility */
+         stroke-width: 5;
+         stroke-linecap: round;
+         stroke-linejoin: round;
+      }
+
+      /* Center image style */
+      .center-image-wrapper {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         text-align: center;
+      }
+
+      .center-image-wrapper img {
+         width: 300px; /* Adjust the size as needed */
+         height: auto;
+      }
+
+      .center-image-text {
+         margin-top: 10px; /* Adjust spacing between image and text */
+         color: rgb(231, 101, 101); /* Text color */
+         font-size: 20px; /* Text size */
+         font-weight: bold; /* Text weight */
+         text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Shadow for better readability */
+      }
+   </style>
+</head>
+
+<body>
+   <!-- Image in Top Left Corner -->
+   <img src="1.jpg" alt="Image 1" class="corner-image top-left">
+   <!-- Image in Top Right Corner -->
+   <img src="2.jpg" alt="Image 2" class="corner-image top-right">
+   <!-- Image in Bottom Left Corner -->
+   <img src="3.jpg" alt="Image 3" class="corner-image bottom-left">
+   <!-- Image in Bottom Right Corner -->
+   <img src="4.jpg" alt="Image 4" class="corner-image bottom-right">
+
+   <!-- SVG Curvy Line -->
+   <svg class="curvy-line" viewBox="0 0 100 100">
+      <path d="M 0 50 Q 25 25, 50 50 T 100 50" />
+   </svg>
+
+   <!-- Center Image with Link -->   <div class="center-image-wrapper">
+      <a href="3rd.html">
+        <img src="rk.png" alt="Center Image">
+     </a>
+     <div class="center-image-text">Click👆</div>
+  </div>
+</body>
+
+</html>
